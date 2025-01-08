@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --primary-color: #6366f1;
+  --primary-color-hover: #555ac2;
+  --primary-color-active: #454e9a;
+  --primary-color-disabled: #6366f1cc;
+  --primary-color-error: #ff3737;
+  --primary-color-success: #00ff7f;
+  --secondary-color: #ff9900;
+  --secondary-color-hover: #ff7700;
+  --secondary-color-active: #ff5500;
+  --secondary-color-disabled: #ff9900cc;
+  --secondary-color-error: #ff3737;
+  --secondary-color-success: #00ff7f;
+  --border-radius: 0.25rem;
+}
+
+:root.light {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --text-color-alternate: #ffffff;
+}
+
+:root.dark {
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --text-color-alternate: #000000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
