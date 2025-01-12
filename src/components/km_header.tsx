@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { KMTextButton } from "../models/km_text_button";
 import { KMLogo } from "./km_logo";
-import { KMToggleThemeButton } from "./km_toggle_theme.button";
+import { KMToggleThemeButton } from "../features/themeToggler/km_toggle_theme_button";
 
 export const KMHeader = () => {
   return (

@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+import themeTogglerReducer from "../features/themeToggler/themeTogglerSlice";
+import calendarPremieresReducer from "../features/calendarPremieres/calendarPremieresSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    themeToggler: themeTogglerReducer,
+    calendarPremieres: calendarPremieresReducer,
   },
 });
+export type AppDispatch = typeof store.dispatch;

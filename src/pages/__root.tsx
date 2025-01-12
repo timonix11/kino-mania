@@ -6,7 +6,9 @@ export const Route = createRootRoute({
   component: () => (
     <React.Fragment>
       <KMHeader />
-      <Outlet />
+      <div className="w-full h-[calc(100%-56px)] overflow-y-scroll">
+        <Outlet />
+      </div>
     </React.Fragment>
   ),
 });

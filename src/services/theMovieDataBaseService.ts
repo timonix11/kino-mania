@@ -15,15 +15,6 @@ class TheMovieDataBaseService {
         Authorization: `Bearer ${this.apiReadAccessToken}`,
       },
     };
-    // axios
-    //   .request(options)
-    //   .then(function (response) {
-    //     // console.log(response.data);
-    //     return response.data;
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
     const response = await axios.request(options);
     return response.data;
   };

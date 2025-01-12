@@ -37,6 +37,11 @@
   --text-color-alternate: #000000;
 }
 
+:root.dark body {
+  scrollbar-width: auto;
+  scrollbar-color: var(--secondary-color) transparent;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
