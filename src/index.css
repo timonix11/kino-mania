@@ -23,6 +23,7 @@
   --secondary-color-error: #ff3737;
   --secondary-color-success: #00ff7f;
   --border-radius: 0.25rem;
+  scrollbar-width: thin;
 }
 
 :root.light {
@@ -38,8 +39,11 @@
 }
 
 :root.dark body {
-  scrollbar-width: auto;
   scrollbar-color: var(--secondary-color) transparent;
+}
+
+:root.light body {
+  scrollbar-color: var(--primary-color) transparent;
 }
 
 body {

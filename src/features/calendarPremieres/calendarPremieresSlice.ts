@@ -15,6 +15,7 @@ export const getPremieres = createAsyncThunk(
   "calendarPremieres/getPremieres",
   async (_, { rejectWithValue }) => {
     try {
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
       const data = await theMovieDataBaseService.getUpcomingMovies();
       return data.results;
     } catch (error) {

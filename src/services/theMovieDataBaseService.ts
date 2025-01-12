@@ -18,6 +18,19 @@ class TheMovieDataBaseService {
     const response = await axios.request(options);
     return response.data;
   };
+  getMovieById = async (movieId: string) => {
+    const options = {
+      method: "GET",
+      url: `${this.baseUrl}/movie/${movieId}`,
+      params: { language: "uk-UA" },
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${this.apiReadAccessToken}`,
+      },
+    };
+    const response = await axios.request(options);
+    return response.data;
+  };
 }
 
 export const theMovieDataBaseService = new TheMovieDataBaseService();
