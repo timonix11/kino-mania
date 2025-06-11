@@ -13,13 +13,12 @@ const initialState: {
 
 export const getPremieres = createAsyncThunk(
   "calendarPremieres/getPremieres",
-  async (_, { rejectWithValue }) => {
+  async () => {
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      const data = await theMovieDataBaseService.getUpcomingMovies();
-      return data.results;
+      const response = await theMovieDataBaseService.getUpcomingMovies();
+      return response;
     } catch (error) {
-      return rejectWithValue(error);
+      console.error("Error fetching upcoming movies: ", error);
     }
   }
 );
@@ -35,7 +34,7 @@ export const calendarPremieresSlice = createSlice({
       })
       .addCase(getPremieres.fulfilled, (state, action) => {
         state.loading = false;
-        state.premieres = action.payload;
+        state.premieres = action.payload ?? [];
         console.log(action.payload);
       })
       .addCase(getPremieres.rejected, (state, action) => {

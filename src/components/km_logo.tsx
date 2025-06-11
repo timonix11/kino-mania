@@ -1,6 +1,6 @@
 export const KMLogo = () => {
   return (
-    <div className="cursor-default select-none text-3xl font-bold text-[--primary-color] dark:text-[--secondary-color]">
+    <div className="font-bold text-[--primary-color] dark:text-[--secondary-color] text-3xl cursor-default select-none">
       KINO MANIA
     </div>
   );

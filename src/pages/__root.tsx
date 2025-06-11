@@ -7,7 +7,7 @@ export const Route = createRootRoute({
     return (
       <React.Fragment>
         <KMHeader />
-        <div className="w-full h-[calc(100%-56px)] overflow-y-auto">
+        <div className="fixed flex flex-col w-full h-[calc(100%-56px)] overflow-y-auto">
           <Outlet />
         </div>
       </React.Fragment>

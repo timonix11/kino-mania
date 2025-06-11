@@ -14,14 +14,15 @@
   --primary-color-hover: #555ac2;
   --primary-color-active: #454e9a;
   --primary-color-disabled: #6366f1cc;
-  --primary-color-error: #ff3737;
-  --primary-color-success: #00ff7f;
   --secondary-color: #ff9900;
   --secondary-color-hover: #ff7700;
   --secondary-color-active: #ff5500;
   --secondary-color-disabled: #ff9900cc;
-  --secondary-color-error: #ff3737;
-  --secondary-color-success: #00ff7f;
+  /* status colors */
+  --color-error: #ff3737;
+  --color-success: #00ff7f;
+  --color-pending: #f1c40f;
+  /* --- */
   --border-radius: 0.25rem;
   scrollbar-width: thin;
 }
@@ -49,4 +50,25 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.link-border {
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 0.1rem;
+    transition: all 0.2s ease-in-out;
+  }
+  &:hover::before {
+    width: 100%;
+  }
+  &.active::before {
+    width: 100%;
+  }
+  @apply dark:before:bg-[--secondary-color] before:bg-[--primary-color] [&.active]:font-bold;
 }

@@ -5,19 +5,25 @@ import { KMToggleThemeButton } from "../features/themeToggler/km_toggle_theme_bu
 
 export const KMHeader = () => {
   return (
-    <header className="flex items-center justify-between px-6 h-14 border-b border-[rgb(228,228,231)] dark:border-[rgb(39,39,42)]">
+    <header className="flex justify-between items-center px-6 border-[rgb(228,228,231)] dark:border-[rgb(39,39,42)] border-b h-14">
       <div className="flex items-center gap-4">
         <KMLogo />
-        <Link to="/" className="[&.active]:font-bold">
-          Home
+        <Link to="/" className="link-border">
+          Головна
         </Link>
-        <Link to="/test" className="[&.active]:font-bold">
-          Test
+        <Link to="/test" className="link-border">
+          Про нас
         </Link>
       </div>
       <div className="flex gap-2">
         <KMToggleThemeButton />
-        <KMTextButton>Увійти</KMTextButton>
+        <KMTextButton
+          onClick={() => {
+            console.log("asdasd");
+          }}
+        >
+          Увійти
+        </KMTextButton>
       </div>
     </header>
   );
