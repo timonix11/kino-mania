@@ -3,14 +3,15 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshThemeCheck, toggleTheme } from "./themeTogglerSlice";
 import { useEffect } from "react";
+import { AppDispatch, RootState } from "../../app/store";
 
 export const KMToggleThemeButton = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state: any) => state.themeToggler.theme);
+  const dispatch: AppDispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.themeToggler.theme);
   const iconSize = 24;
   useEffect(() => {
     dispatch(refreshThemeCheck());
-  }, []);
+  }, [dispatch]);
   return (
     <KMIconButton onClick={() => dispatch(toggleTheme())}>
       {theme === "dark" ? (
