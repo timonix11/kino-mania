@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getPremieres } from "./calendarPremieresSlice";
 import { AppDispatch, RootState } from "../../app/store";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { KMMovieCard } from "../../models/km_movie_card";
 import { KMLoading } from "../../components/km_loading";
 import CalendarPremiereMovie from "../../models/interfaces/calendarPremiereMovieInterface";
@@ -14,7 +14,15 @@ export const KMCalendarPremieres = () => {
   const loading = useSelector(
     (state: RootState) => state.calendarPremieres.loading
   );
-
+  const sortedPremieres = useMemo(() => {
+    return [...premieres].sort((a, b) => {
+      const [dayA, monthA, yearA] = a.release_date.split(".");
+      const [dayB, monthB, yearB] = b.release_date.split(".");
+      const dateA = new Date(`${yearA}-${monthA}-${dayA}`).getTime();
+      const dateB = new Date(`${yearB}-${monthB}-${dayB}`).getTime();
+      return dateA - dateB;
+    });
+  }, [premieres]);
   useEffect(() => {
     dispatch(getPremieres());
   }, [dispatch]);
@@ -37,7 +45,7 @@ export const KMCalendarPremieres = () => {
 
       {loading ? <KMLoading /> : null}
       <div className="justify-items-center gap-3 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
-        {premieres.map((item: CalendarPremiereMovie, index: number) => (
+        {sortedPremieres.map((item: CalendarPremiereMovie, index: number) => (
           <KMMovieCard
             key={index}
             title={item.title}
